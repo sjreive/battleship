@@ -1,5 +1,17 @@
+// Importing modules
+const express = require("express");
+const app = express();
+//get CSS styles.
+app.use(express.static(__dirname + '/public'));
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true}));
+app.set("view engine", "ejs");
 
-//constructor function for tile
+const PORT = 8080; //default port 8080
+
+
+
+// CLASSES
 class Tile {
   constructor(x,y) {
     this.xPos = x;
@@ -7,7 +19,7 @@ class Tile {
     this.ship = false;
     this.hit = false;
   }
-  tileHit () {
+  tileHit() {
     if (!this.hit && this.ship) {
       this.hit = true;
       console.log("You've hit the SHIPNAME!");
@@ -17,29 +29,24 @@ class Tile {
       console.log("You've already hit this spot.");
     }
   }
-  placeShip (ship) {
+  placeShip(ship) {
     if (this.ship) {
       console.log("There is already a ship here");
     }
-    if (th) //// CHECK THAT NOT RUNNING INTO EDGE OF BOARD
+  //// CHECK THAT NOT RUNNING INTO EDGE OF BOARD
   }
 }
 
 
 class Ship {
-  constructor(x,y,orient,type){ 
+  constructor(x,y,orient,length) {
     this.xStart = x; //starting x position
-    this.yStart = y // starting y position
-    this.orient = orient // horz or vert (horz is default)
-    this.type = type // carrier (5 tiles), battleship (4 tiles), cruiser (3 tiles), submarine (3 tiles), destroyer (2 tiles)
+    this.yStart = y; // starting y position
+    this.orient = orient; // horz or vert (horz is default)
+    this.length = length;
   }
 
 }
-A Carrier, which is 5 tiles long
-A Battleship, which is 4 tiles long
-A Cruiser, which is 3 tiles long
-A Submarine, which is 3 tiles long
-A Destroyer, which is 2 tiles long
 
 class Board {
   constructor() {
@@ -51,17 +58,49 @@ class Board {
       }
       board.push(row);
     }
-    console.log(board); 
+    console.log(board);
     return board;
   }
 }
 
-// initializing the game
+// for (let i = 1; i <= x; i++) {
+//   $('#wrapper').append($('<div/>', {id: 'r' + i, class:'square'}));
+//   $(".square").height(h);
+//   $(".square").width(h);
+  
+// }
+
+// initializing the game board
 let userBoard = new Board(); //Initialize user board
 let serverBoard = new Board(); //Initializes server board
 
+// initialize the server's ships (NEED FUNCTION TO RANDOMLY GENERATE LOCATION of BOATS)
+// let serverCarrier = new Ship(x, y, horz, 5);
+// let serverCruiser = new Ship(x, y, horz, 3);
+// let serverBattleship = new Ship(x, y, horz, 4);
+// let serverSubmarine = new Ship(x, y, horz, 3);
+// let serverDestroyer = new Ship(x, y, horz, 2);
+
+// Prompt user for input on where they would like to place their ships.
+// let userCarrier = new Ship(x, y, horz, 5);
+// let userBattleship = new Ship(x, y, horz, 4);
+// let userCruiser = new Ship(x, y, horz, 3);
+// let userSubmarine = new Ship(x, y, horz, 3);
+// let userDestroyer = new Ship(x, y, horz, 2);
 
 
+
+
+//Route for main page
+app.get("/", (req, res) => {
+  res.render("index");
+});
+
+
+
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}!`);
+});
 
 
 
