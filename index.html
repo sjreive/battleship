@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="utf-8"> <!-- specifies the character encoding for the html document -->
+			<link href="style/style.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> <!--jQuery from CDN -->
+			<script src="scripts/main.js"></script>
+			<title>Battleship </title>
+		</head>
+		<body>
+      <div class= header>
+        <h1>Battleship </h1>
+			  <div class="controls">
+				  <button id="new">START NEW GAME!</button>
+        </div>     
+      </div>
+
+      <div class= boardspace>
+        <!-- Server boardspace -->
+        <div class= boardspace>
+          <div class= yAxis></div>
+          <div class= board> <!-- TILES ETC. WILL GO HERE--></div>
+          <div class= xAxis></div>
+        </div>
+        <!-- User boardspace -->
+        <div class= boardspace>
+            <div class= yAxis></div>
+            <div class= board> <!-- TILES ETC. WILL GO HERE--></div>
+            <div class= xAxis></div>
+          </div>
+      </div>
+
+      <div class= gameOutput>
+        <div class= shiplog id= servershiplog></div> <!-- Log of Server's ships-->
+        <div class= shiplog id= gamelog></div> <!-- Log of all game's activities-->
+        <div class= shiplog id= servershiplog></div> <!-- Log of Server's ships-->
+      </div>   
+		</body>
+	</html>
