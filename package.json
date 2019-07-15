@@ -22,6 +22,8 @@
   },
   "dependencies": {
     "body-parser": "^1.19.0",
-    "ejs": "^2.6.2"
+    "ejs": "^2.6.2",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.1"
   }
 }

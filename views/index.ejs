@@ -3,15 +3,19 @@
 		<head>
 			<meta charset="utf-8"> <!-- specifies the character encoding for the html document -->
 			<link href="/styles/style.css" rel="stylesheet">
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> <!--jQuery from CDN -->
-			<script src="../battleship.js"></script>
-			<title>Battleship </title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  <!--jQuery from CDN -->
+			<script src="/scripts/gamePlay.js"></script> <!-- local javascript file-->
+			<title>Battleship</title>
 		</head>
 		<body>
       <div class= header>
         <h1>Battleship </h1>
-			  <div class="controls">
-				  <button id="new">START NEW GAME!</button>
+			  <div id="controls">
+          <div id= "buttons">
+          <button id="new">START NEW GAME!</button>
+          </div>
+          <div id="intructions"></div>
+          <!--Instructions will be printed to the user here-->
         </div>     
       </div>
 
@@ -19,13 +23,15 @@
         <!-- Server boardspace -->
         <div class= boardspace>
           <div class= yAxis></div>
-          <div class= board> <!-- TILES ETC. WILL GO HERE--></div>
+          <div class= board id= "serverboard"> 
+            <!-- TILES ETC. WILL GO HERE-->
+          </div>
           <div class= xAxis></div>
         </div>
         <!-- User boardspace -->
-        <div class= boardspace>
+        <div class= boardspace id: userboard>
             <div class= yAxis></div>
-            <div class= board> <!-- TILES ETC. WILL GO HERE--></div>
+            <div class= board id= "userboard"> <!-- TILES ETC. WILL GO HERE--></div>
             <div class= xAxis></div>
           </div>
       </div>
@@ -37,5 +43,3 @@
       </div>   
 		</body>
   </html>
-  
-  object[]
